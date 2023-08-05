@@ -2,7 +2,7 @@
 @use 'sass:math';
 
 .navigation {
-  @include position(fixed, 0 null null 0, 20);
+  // @include position(fixed, 0 null null 0, 20);
   @include size(100vw, calc(var(--nav-height) + 2 * var(--outer-padding)));
   @include flex-row(flex-start);
   padding: calc(0.5 * var(--outer-padding)) var(--outer-padding);
@@ -10,6 +10,7 @@
 
   img {
     @include size(130px, auto);
+    @include position(fixed, calc(1.5 * var(--outer-padding)) null null var(--outer-padding), 10);
     transition: var(--base-transition);
 
     @include landscape {
@@ -20,8 +21,9 @@
   svg {
     @include size(auto, calc(var(--element-height) - 1rem));
     @include position(
-      absolute,
-      calc(0.5rem + var(--outer-padding)) null null 0.5rem
+      fixed,
+      calc(0.5rem + var(--outer-padding)) null null 0.5rem,
+      10
     );
     @include size(var(--nav-height));
     top: var(--outer-padding);
@@ -32,11 +34,15 @@
     border-radius: var(--border-radius);
     background: var(--black);
     padding: 0.75rem;
+
+    @include landscape {
+      left: calc(var(--nav-height) + var(--outer-padding));
+    }
   }
 
   &.back {
     img {
-      transform: translateX(-50px);
+      transform: translateX(0px);
       opacity: 0;
     }
 
