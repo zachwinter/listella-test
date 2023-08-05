@@ -59,30 +59,56 @@ body {
   }
 }
 
+* {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::scrollbar {
+    display: none;
+  }
+}
+
 main {
   @include size(100%, 100vh);
   @include position(absolute, 0 null null 0);
   padding: calc(var(--nav-height) + (2 * var(--outer-padding)))
-    var(--outer-padding) var(--outer-padding);
+    var(--outer-padding) calc(var(--nav-height) + (2 * var(--outer-padding)))
+    var(--outer-padding);
   transform-origin: center center;
   overflow-x: hidden;
   z-index: 1;
   will-change: transform, opacity;
-
-  &.home {
-    padding: 0;
-  }
-
-  @include mobile-landscape {
-    padding: var(--outer-padding) var(--outer-padding) var(--outer-padding)
-      calc(var(--nav-height) + (2 * var(--outer-padding)));
-  }
 
   > * {
     animation: fade-slide var(--duration) var(--easing) forwards;
     opacity: 0;
 
     @include cascade(20, 50ms);
+  }
+
+  &.homes, &.home {
+    padding: 0;
+  }
+
+  @include landscape {
+    padding:  calc(var(--nav-height) + (2 * var(--outer-padding))) var(--outer-padding) var(--outer-padding)
+      calc(var(--nav-height) + (2 * var(--outer-padding)));
+
+    &.dashboard {
+      @include flex-row(flex-start, flex-start, wrap);
+      gap: var(--outer-padding);
+      padding-top:  calc(var(--nav-height) + (2 * var(--outer-padding)));
+
+      > * {
+        width: calc(50% - var(--outer-padding) / 2);
+        margin: 0;
+      }
+    }
+
+    &.homes {
+      padding-left: calc(var(--nav-height) + 1rem);
+    }
   }
 }
 

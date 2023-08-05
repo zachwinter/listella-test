@@ -16,7 +16,7 @@ const Home = (props, ref) => {
   const width = useGlobalValue('viewport.width');
 
   return homes?.[id] ? (
-    <View ref={ref} key="favorites">
+    <View ref={ref} key="home" className="home">
       <SlideShow images={homes[id].images} />
       <Address>
         <strong>
@@ -40,7 +40,7 @@ const Home = (props, ref) => {
         <Map
           center={homes[id].coords}
           width={width}
-          height={width / 2}
+          height={250}
           zoom={16}
           pitch={0}
           markers={[homes[id]]}

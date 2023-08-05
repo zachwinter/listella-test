@@ -1,7 +1,7 @@
 @use '@/styles/imports' as *;
 
 .home-details {
-  margin: 0 -1rem;
+  // margin: 0 -1rem;
 
   > * {
     @include flex-row(flex-start);
@@ -41,5 +41,9 @@
     * {
       fill: var(--white);
     }
+  }
+
+  p {
+    margin: var(--outer-padding) 0;
   }
 }

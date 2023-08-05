@@ -5,26 +5,34 @@
   @include position(fixed, 0 null null 0, 20);
   @include size(100vw, calc(var(--nav-height) + 2 * var(--outer-padding)));
   @include flex-row(flex-start);
-  padding: calc(.5 * var(--outer-padding)) var(--outer-padding);
+  padding: calc(0.5 * var(--outer-padding)) var(--outer-padding);
   gap: var(--spacer);
 
   img {
     @include size(130px, auto);
     transition: var(--base-transition);
 
-    @include mobile-landscape {
+    @include landscape {
       display: none;
     }
   }
 
   svg {
     @include size(auto, calc(var(--element-height) - 1rem));
-    @include position(absolute, calc(.5rem + var(--outer-padding)) null null .5rem);
+    @include position(
+      absolute,
+      calc(0.5rem + var(--outer-padding)) null null 0.5rem
+    );
+    @include size(var(--nav-height));
+    top: var(--outer-padding);
+    left: var(--outer-padding);
     opacity: 0;
     transform: translateX(50px);
     transition: var(--base-transition);
+    border-radius: var(--border-radius);
+    background: var(--black);
+    padding: 0.75rem;
   }
-
 
   &.back {
     img {
@@ -37,12 +45,22 @@
       opacity: 1;
     }
   }
+
+  &.back svg {
+    * {
+      fill: var(--white);
+    }
+
+    @include landscape {
+      left: calc(var(--nav-height) + 2 * var(--outer-padding));
+    }
+  }
 }
 
 @keyframes fade-slide {
   0% {
     opacity: 0;
-    transform: translateY(100px) scale(.5);
+    transform: translateY(100px) scale(0.5);
   }
 
   100% {
@@ -95,7 +113,7 @@
   opacity: 1;
   pointer-events: all;
   transform: scale(1);
-  
+
   a {
     animation: fade-slide 500ms var(--easing) forwards;
     transform-origin: center;
@@ -104,7 +122,8 @@
     @include cascade(10, 90ms);
   }
 
-  img, img + * {
+  img,
+  img + * {
     animation: fade-slide 500ms var(--easing) forwards;
   }
 }
@@ -115,10 +134,10 @@
   color: var(--blue);
 
   &:before {
-    content: " / ";
+    content: ' / ';
     font-weight: 300;
-    margin-left: -.25em;
-    color:  var(--black);
+    margin-left: -0.25em;
+    color: var(--black);
     font-size: 1em;
   }
 }

@@ -9,7 +9,7 @@ type PageTransitionRef = React.ForwardedRef<HTMLDivElement>;
 const FADE = {
   initial: {
     opacity: 0,
-    transform: 'translateY(0px) scale(.8)',
+    transform: 'translateY(0px) scale(.9)',
   },
 
   animate: {
@@ -19,7 +19,7 @@ const FADE = {
 
   exit: {
     opacity: 0,
-    transform: 'translateY(0px) scale(.8)',
+    transform: 'translateY(0px) scale(.9)',
   },
 };
 
@@ -30,7 +30,7 @@ const TRANSITIONS = {
 export type RouteTransition = 'FADE'
 
 const View = (
-  { children, ...rest }: PageTransitionProps,
+  { children, className = '', ...rest }: PageTransitionProps,
   ref: PageTransitionRef
 ) => {
   const router = useRouter()
@@ -41,7 +41,7 @@ const View = (
   return (
     <motion.main
       ref={ref}
-      className={router.asPath.split('/')[1] || 'home'}
+      className={`${router.asPath.split('/')[1] || 'home'} ${className || ''}`}
       initial={TRANSITIONS[transition].initial}
       animate={TRANSITIONS[transition].animate}
       exit={TRANSITIONS[transition].exit}

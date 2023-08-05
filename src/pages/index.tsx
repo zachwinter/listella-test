@@ -6,7 +6,7 @@ import { useGlobalValue } from '@/store';
 
 const Home = (props: any, ref: any) => {
   return (
-    <View ref={ref} key="home">
+    <View ref={ref} key="home" className="home">
       <Hero />
       <About />
     </View>

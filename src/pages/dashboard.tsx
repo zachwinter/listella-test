@@ -14,7 +14,7 @@ const Dashboard = (props: any, ref: any) => {
   }
 
   return (
-    <View ref={ref} key="dashboard">
+    <View ref={ref} key="dashboard" className="dashboard">
       <ToDo items={items} updateItem={updateItem} />
       <Resources />
     </View>

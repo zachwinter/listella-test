@@ -25,13 +25,15 @@ export default () => {
     'map.selectedMarker',
   ]) as any;
 
-  const [width, height, visible, initialized, markers] = useGlobalValues([
-    'viewport.width',
-    'viewport.height',
-    'map.visible',
-    'ui.initialized',
-    'map.markers',
-  ]) as any;
+  const [width, height, visible, initialized, markers, orientation] =
+    useGlobalValues([
+      'viewport.width',
+      'viewport.height',
+      'map.visible',
+      'ui.initialized',
+      'map.markers',
+      'viewport.orientation',
+    ]) as any;
 
   function onUpdate({
     key,
@@ -64,17 +66,26 @@ export default () => {
 
     const el = list.current as any;
     const target = el.querySelector(`li:nth-child(${index + 1})`);
-    const { left, width: targetWidth } = target.getBoundingClientRect();
-    const from = el.scrollLeft;
-    const to = from + left - ((width - targetWidth) / 2);
-    const iScrollLeft = interpolateNumber(from, to);
+    const {
+      top,
+      left,
+      width: targetWidth,
+      height: targetHeight,
+    } = target.getBoundingClientRect();
+    const from = orientation === 'PORTRAIT' ? el.scrollLeft : el.scrollTop;
+    const to =
+      orientation === 'PORTRAIT'
+        ? from + left - (width - targetWidth) / 2
+        : from + top - (height - targetHeight) / 2;
+    const iScroll = interpolateNumber(from, to);
     const start = window.performance.now();
     const duration = 500;
 
     const tick = (now: DOMHighResTimeStamp) => {
       const elapsed = now - start;
       const progress = easing(Math.max(Math.min(1, elapsed / duration), 0));
-      el.scrollLeft = iScrollLeft(progress);
+      el[orientation === 'PORTRAIT' ? 'scrollLeft' : 'scrollTop'] =
+        iScroll(progress);
       if (progress < 1) requestAnimationFrame(tick);
     };
 
@@ -102,8 +113,8 @@ export default () => {
           homes={markers}
           selected={selectedMarker}
           onSelect={(home: any) => {
-            map.current?.animateToMarker?.(home)
-            scrollHomeIntoView(home)
+            map.current?.animateToMarker?.(home);
+            scrollHomeIntoView(home);
           }}
         />
       </div>

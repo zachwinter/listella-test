@@ -3,7 +3,7 @@ import View from '@/components/common/View';
 
 const Favorites = (props: any, ref: any) => {
   return (
-    <View ref={ref} key="calculate-affodability">
+    <View ref={ref} key="calculate-affodability" className="calculate-affordability">
       <p>/resources/calculate-affordability</p>
     </View>
   );

@@ -27,7 +27,7 @@
     }
   }
 
-  @include mobile-landscape {
+  @include landscape {
     @include position(
       fixed,
       0 initial 0 calc(var(--outer-padding) + var(--nav-height)),
@@ -48,7 +48,7 @@
   // border: 0.2em solids5em 0 var(--blue);
   // box-shadow: 0 .1em .2em rgba(darken($purple, 50%), .4);
   // border: 2px solid rgba(255, 255, 255, .8);
-  @include mobile-landscape {
+  @include landscape {
     @include size(100%, auto);
   }
 }

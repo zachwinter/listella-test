@@ -52,7 +52,7 @@
   }
 }
 
-@include mobile-landscape {
+@include landscape {
   @include _larger-than-mobile;
 }
 
