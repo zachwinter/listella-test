@@ -1,0 +1,9 @@
+// Creates an iOS-esque background blur for a stacking context.
+// Depending on the browser, you'll run into performance issues if
+// you're overlaying / blurring a playing <video> or active <canvas> content. 
+
+@mixin blur($blur: 10px, $color: rgba(0, 0, 0, 0.2)) {
+  background: $color;
+  -webkit-backdrop-filter: blur(#{$blur});
+  backdrop-filter: blur(#{$blur});
+}

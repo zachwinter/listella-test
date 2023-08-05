@@ -1,0 +1,21 @@
+@mixin tablet-landscape {
+  @media all and (min-width: 1024px) and (min-height: 768px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin tablet-portrait {
+  @media all and (min-width: 768px) and (min-height: 1024px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @include tablet-landscape {
+    @content;
+  }
+
+  @include tablet-portrait {
+    @content;
+  }
+}

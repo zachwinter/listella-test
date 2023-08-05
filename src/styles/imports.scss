@@ -1,0 +1,31 @@
+// This file exposes all Sass utilities: mixins, functions, and variables. 
+// Simply importing this file does not result in any CSS being generated,
+// and as such is meant to be imported in every single stylesheet, which is
+// as simple as:
+//
+// @use '@/styles/imports' as *;
+
+@forward './mixins';
+@forward './functions';
+
+@use 'sass:math';
+
+// Colors
+$black: rgb(16, 15, 15);
+$gray: rgb(220, 220, 220);
+$white: rgb(250, 250, 250);
+$pink: rgb(248, 74, 123);
+$blue: rgb(55, 182, 255);
+$green: rgb(198, 246, 213);
+$purple: rgb(182, 125, 239);
+
+// Color Map (@see @/styles/global.scss)
+$colors: (
+  'black': $black,
+  'white': $white,
+  'pink': $pink,
+  'blue': $blue,
+  'green': $green,
+  'gray': $gray,
+  'purple': $purple
+);

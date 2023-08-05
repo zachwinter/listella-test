@@ -1,0 +1,8 @@
+// Center an element within a parent whose position isn't `static`.
+
+@use './position' as *;
+
+@mixin center($position: absolute /* or `fixed` */) {
+  @include position($position, 50% null null 50%);
+  transform: translate(-50%, -50%);
+}

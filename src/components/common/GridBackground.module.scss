@@ -1,0 +1,53 @@
+@use '@/styles/imports' as *;
+
+@keyframes fade-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(0.95);
+    opacity: .7;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    transform: scale(0.95);
+    opacity: .7;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.grid {
+  @include position(absolute, 0 0 0 0);
+  @include flex-row(flex-start, flex-start, wrap);
+  z-index: -1;
+
+  $border: 1px solid var(--gray);
+
+  div {
+    @include size(calc(100vw / 6), calc(100vh / 12));
+    @include flex-row;
+    animation: fade-out 1ms var(--easing) reverse forwards;
+    transition: background-color 1000ms var(--easing);
+    z-index: -1;
+  }
+}
+
+.active div {
+  animation: fade-in 350ms var(--easing) forwards;
+  will-change: transform, opacity;
+  opacity: 0;
+
+  @for $i from 1 through 200 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 3}ms;
+    }
+  }
+}

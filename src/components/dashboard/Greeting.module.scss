@@ -1,0 +1,19 @@
+@use '@/styles/imports' as *;
+
+.greeting {
+  @include flex-row;
+  padding: var(--outer-padding) 0;
+  background: var(--white);
+  margin: 0 -1em;
+  gap: var(--outer-padding);
+}
+
+.h1 {
+  font-size: 2em;
+} 
+
+.name {
+  color: var(--blue);
+  line-height: var(--nav-height);
+  margin-top: var(--outer-padding);
+}

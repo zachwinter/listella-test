@@ -1,0 +1,96 @@
+// Import Sass utilities.
+@use '@/styles/imports' as *;
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Comfortaa:wght@300;700&family=Lexend+Deca:wght@200;700&family=Mulish:wght@300;600&display=swap'); // Layout
+:root {
+  --nav-height: 3em;
+  --element-height: 3em;
+  --outer-padding: 1em;
+  --spacer: 1em;
+  --border-radius: 1em;
+}
+
+// Transitions
+:root {
+  --duration: 350ms;
+  --easing: cubic-bezier(0.14, 0.93, 0.58, 0.99);
+  --long-transition: all calc(var(--duration) * 2) var(--easing);
+  --base-transition: all var(--duration) var(--easing);
+  --fast-transition: all calc(var(--duration) / 3) linear;
+}
+
+// Colors, mapped from our Sass variables (@see @/styles/imports.scss)
+:root {
+  @each $name, $color in $colors {
+    --#{$name}: #{$color};
+  }
+}
+
+// CSS Reset
+@include reset;
+
+html,
+body,
+#__next {
+  @include size(100%);
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Lexend Deca';
+  font-weight: 200;
+
+  * {
+    font-family: inherit;
+    font-weight: inherit;
+  }
+}
+
+@keyframes fade-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(150px) scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+main {
+  @include size(100%, 100vh);
+  @include position(absolute, 0 null null 0);
+  padding: calc(var(--nav-height) + (2 * var(--outer-padding)))
+    var(--outer-padding) var(--outer-padding);
+  transform-origin: center center;
+  overflow-x: hidden;
+  z-index: 1;
+  will-change: transform, opacity;
+
+  &.home {
+    padding: 0;
+  }
+
+  @include mobile-landscape {
+    padding: var(--outer-padding) var(--outer-padding) var(--outer-padding)
+      calc(var(--nav-height) + (2 * var(--outer-padding)));
+  }
+
+  > * {
+    animation: fade-slide var(--duration) var(--easing) forwards;
+    opacity: 0;
+
+    @include cascade(20, 50ms);
+  }
+}
+
+.cursive {
+  font-family: 'Borel', sans-serif;
+  font-weight: 400;
+}
+
+.maplibregl-control-container {
+  display: none;
+}

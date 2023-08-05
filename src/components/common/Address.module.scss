@@ -1,0 +1,10 @@
+@use '@/styles/imports' as *;
+
+.address {
+  padding: 1rem 0;
+  font-style: normal;
+
+  strong {
+    font-size: 1.75rem;
+  }
+}

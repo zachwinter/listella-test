@@ -1,0 +1,25 @@
+// Shorthand for positioning/stacking an element.
+//
+// div {
+//   @include position(aboslute, 0 50% null 10px, 10);
+// }
+//
+// ... outputs to ....
+//
+// div {
+//   position: absolute;
+//   top: 0;
+//   right: 50%;
+//   left: 10px;
+//   z-index: 10;
+// }
+//
+
+@mixin position($position, $list, $z-index: initial) {
+  position: $position;
+  top: nth($list, 1);
+  right: nth($list, 2);
+  bottom: nth($list, 3);
+  left: nth($list, 4);
+  z-index: $z-index;
+}

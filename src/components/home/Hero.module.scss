@@ -1,0 +1,49 @@
+@use '@/styles/imports' as *;
+
+.hero {
+  @include size(100vw, 100vh);
+  position: relative;
+  overflow: hidden;
+
+  header {
+    @include position(absolute, 0 null 65vh 0);
+    @include size(100%, 50vh);
+    @include flex-column(center, flex-start);
+    flex-shrink: 0;
+    padding: 0 var(--outer-padding);
+
+    p {
+      font-size: 1.3em;
+      line-height: 1.4;
+      margin-top: 0.5em;
+    }
+  }
+
+  h1 {
+    font-size: 3.3em;
+    max-width: 70%;
+    line-height: 0.9;
+    color: var(--black);
+    font-weight: normal;
+
+    span {
+      color: var(--blue);
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  }
+
+  &:after {
+    @include position(absolute, null 0 0 0);
+    content: '';
+    height: 10vh;
+    background: #d5c1d9;
+    z-index: -1;
+  }
+}
+
+.svg {
+  @include position(absolute, 35vh null null 0);
+  @include size(auto, 65vh);
+  transform: translateX(-32%);
+}

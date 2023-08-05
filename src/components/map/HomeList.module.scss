@@ -1,0 +1,122 @@
+@use '@/styles/imports' as *;
+
+.home-list {
+  @include position(
+    fixed,
+    null 0 calc(var(--outer-padding) + var(--nav-height)) 0,
+    2
+  );
+  @include flex-row(flex-start, center);
+  gap: 0.5em;
+  height: 150px;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: var(--white);
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(1rem);
+  will-change: transform;
+
+  li {
+    height: 100%;
+    transform: scale(0.9);
+    transition: var(--long-transition);
+    will-change: transform;
+
+    &.active {
+      transform: scale(1);
+    }
+  }
+
+  @include mobile-landscape {
+    @include position(
+      fixed,
+      0 initial 0 calc(var(--outer-padding) + var(--nav-height)),
+      2
+    );
+    @include flex-column(flex-start, flex-start);
+    @include size(220px, 100%);
+    overflow-x: initial;
+    overflow-y: auto;
+  }
+}
+
+.image {
+  @include size(auto, 100%);
+  display: block;
+  border-radius: calc(var(--border-radius) / 2);
+  overflow: hidden;
+  // border: 0.2em solids5em 0 var(--blue);
+  // box-shadow: 0 .1em .2em rgba(darken($purple, 50%), .4);
+  // border: 2px solid rgba(255, 255, 255, .8);
+  @include mobile-landscape {
+    @include size(100%, auto);
+  }
+}
+
+.info {
+  @include position(absolute, 0 0 0 0);
+  @include flex-row(space-between);
+  padding: var(--outer-padding);
+  gap: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom right, rgba(darken(saturate($blue, 80%), 20%), .5), rgba($green, .3));
+  transition: var(--base-transition);
+  border-radius: calc(var(--border-radius) / 2);
+  will-change: opacity;
+
+  a {
+    @include position(absolute, null .5rem .5rem null, 2);
+    color: var(--white);
+    text-transform: uppercase;
+    padding: .5em;
+    border-radius: .25rem;
+    z-index: 10;
+    text-shadow: none;
+    will-change: opacity;
+    background: var(--blue);
+  }
+}
+
+.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.column {
+  @include flex-column(flex-start, flex-start);
+}
+
+.beds {
+  @include flex-row;
+  gap: .5rem;
+  // font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--white);
+  margin-top: .5rem;
+  border-radius: 50px;
+
+  div {
+    @include flex-row(flex-start, center);
+    gap: .5rem;
+
+    svg {
+      @include size(28px);
+      display: flex;
+      border: 1px solid var(--white);
+      padding: .2rem;
+      border-radius: 100%;
+      background: var(--blue);
+
+      * {
+        fill: var(--white);
+      }
+    }
+  }
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--white);
+}

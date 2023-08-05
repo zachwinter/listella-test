@@ -1,0 +1,13 @@
+@use '@/styles/imports' as *;
+
+.avatar {
+  border-radius: 100%;
+  border: 2px solid var(--white);
+  position: relative;
+
+  &:before {
+    @include position(absolute, 0 0 0 0);
+    content: '';
+    background: var(--green);
+  }
+}

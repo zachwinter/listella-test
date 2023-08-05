@@ -1,0 +1,19 @@
+@use '@/styles/imports' as *;
+
+.map {
+  @include position(absolute, 0 null null 0);
+  @include size(100vw !important, 100vh !important);
+  overflow: hidden;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--duration) var(--easing);
+  will-change: transform, opacity;
+  transform: scale(.8);
+}
+
+.visible {
+  pointer-events: all;
+  opacity: 1;
+  transform: scale(1);
+}

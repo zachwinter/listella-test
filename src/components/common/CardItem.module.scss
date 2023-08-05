@@ -1,0 +1,32 @@
+@use '@/styles/imports' as *;
+
+.card-item {
+  @include flex-row(space-between, center);
+  font-size: 1.2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  transition: var(--fast-transition);
+
+  svg {
+    @include size(30px);
+
+    * {
+      fill: var(--white);
+    }
+  }
+
+  &:has(a) {
+    padding: 0;
+
+    a {
+      @include size(100%);
+      @include flex-row(space-between, center);
+      padding: 1rem;
+
+      * {
+        pointer-events: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+// Set the color of any text (that doesn't have a background) with a two-tone gradient.
+
+@mixin text-gradient($color, $color2, $direction: to right) {
+  background: linear-gradient(#{$direction}, $color, $color2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

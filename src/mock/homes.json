@@ -1,0 +1,137 @@
+[
+  {
+    "address": ["123 Main St", "San Francisco", "CA", "94105"],
+    "coords": [-122.394166, 37.789951],
+    "price": 1500000
+  },
+  {
+    "address": ["456 Elm St", "San Francisco", "CA", "94109"],
+    "coords": [-122.421414, 37.776436],
+    "price": 1200000
+  },
+  {
+    "address": ["789 Oak Ave", "San Francisco", "CA", "94122"],
+    "coords": [-122.469384, 37.760845],
+    "price": 1800000
+  },
+  {
+    "address": ["1010 Pine St", "San Francisco", "CA", "94117"],
+    "coords": [-122.436985, 37.775249],
+    "price": 1350000
+  },
+  {
+    "address": ["1313 Maple Rd", "San Francisco", "CA", "94102"],
+    "coords": [-122.425089, 37.781616],
+    "price": 2000000
+  },
+  {
+    "address": ["1515 Cedar St", "San Francisco", "CA", "94115"],
+    "coords": [-122.434399, 37.786126],
+    "price": 2200000
+  },
+  {
+    "address": ["1717 Birch Ln", "San Francisco", "CA", "94104"],
+    "coords": [-122.401601, 37.791739],
+    "price": 1800000
+  },
+  {
+    "address": ["1818 Redwood Ct", "San Francisco", "CA", "94111"],
+    "coords": [-122.398859, 37.793984],
+    "price": 2100000
+  },
+  {
+    "address": ["2020 Walnut Pl", "San Francisco", "CA", "94108"],
+    "coords": [-122.414322, 37.79139],
+    "price": 1900000
+  },
+  {
+    "address": ["2222 Ash St", "San Francisco", "CA", "94123"],
+    "coords": [-122.438473, 37.800605],
+    "price": 2500000
+  },
+  {
+    "address": ["2424 Chestnut Ave", "San Francisco", "CA", "94133"],
+    "coords": [-122.440963, 37.799287],
+    "price": 2400000
+  },
+  {
+    "address": ["2626 Willow Blvd", "San Francisco", "CA", "94121"],
+    "coords": [-122.489682, 37.786663],
+    "price": 1750000
+  },
+  {
+    "address": ["2727 Laurel Dr", "San Francisco", "CA", "94116"],
+    "coords": [-122.485135, 37.740315],
+    "price": 1400000
+  },
+  {
+    "address": ["2828 Magnolia St", "San Francisco", "CA", "94110"],
+    "coords": [-122.416422, 37.743792],
+    "price": 1650000
+  },
+  {
+    "address": ["2929 Rose Ave", "San Francisco", "CA", "94127"],
+    "coords": [-122.465346, 37.733271],
+    "price": 1600000
+  },
+  {
+    "address": ["3030 Ivy Ln", "San Francisco", "CA", "94112"],
+    "coords": [-122.460004, 37.723709],
+    "price": 1300000
+  },
+  {
+    "address": ["3131 Olive Rd", "San Francisco", "CA", "94134"],
+    "coords": [-122.411595, 37.722731],
+    "price": 1200000
+  },
+  {
+    "address": ["3232 Holly Pl", "San Francisco", "CA", "94131"],
+    "coords": [-122.441297, 37.734316],
+    "price": 1450000
+  },
+  {
+    "address": ["3333 Cypress Ave", "San Francisco", "CA", "94132"],
+    "coords": [-122.476332, 37.717891],
+    "price": 1550000
+  },
+  {
+    "address": ["3434 Pinecone Rd", "San Francisco", "CA", "94129"],
+    "coords": [-122.469088, 37.794304],
+    "price": 2300000
+  },
+  {
+    "address": ["3535 Cedarwood Dr", "San Francisco", "CA", "94120"],
+    "coords": [-122.443949, 37.792556],
+    "price": 2150000
+  },
+  {
+    "address": ["3636 Birchwood Ln", "San Francisco", "CA", "94118"],
+    "coords": [-122.463715, 37.780617],
+    "price": 1950000
+  },
+  {
+    "address": ["3737 Elmwood Ave", "San Francisco", "CA", "94124"],
+    "coords": [-122.404847, 37.721786],
+    "price": 1250000
+  },
+  {
+    "address": ["3838 Oakhurst Pl", "San Francisco", "CA", "94107"],
+    "coords": [-122.407549, 37.754528],
+    "price": 1700000
+  },
+  {
+    "address": ["3939 Maplewood St", "San Francisco", "CA", "94114"],
+    "coords": [-122.437283, 37.758679],
+    "price": 1850000
+  },
+  {
+    "address": ["4040 Pinehurst Dr", "San Francisco", "CA", "94128"],
+    "coords": [-122.387566, 37.609203],
+    "price": 1100000
+  },
+  {
+    "address": ["4141 Redwood Hwy", "San Francisco", "CA", "94126"],
+    "coords": [-122.419647, 37.775153],
+    "price": 1600000
+  }
+]

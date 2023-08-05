@@ -1,0 +1,20 @@
+@use '@/styles/imports' as *;
+
+.image {
+  position: relative;
+
+  &:before {
+    @include position(absolute, 0 0 0 0, 2);
+    content: '';
+    border-radius: var(--border-radius);
+    pointer-events: none;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    z-index: 1;
+    border-radius: var(--border-radius);
+  }
+}

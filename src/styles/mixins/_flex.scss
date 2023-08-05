@@ -1,0 +1,26 @@
+// `justify-content` and `align-items` affect different axes depending on whether or not it's a row or a column.
+// These mixins assist in setting them correctly, as the first parameter is always the primary axis.
+
+@mixin flex-row(
+  $horizontal-alignment: center,
+  $vertical-alignment: center,
+  $wrap: initial
+) {
+  display: flex;
+  flex-direction: row;
+  align-items: $vertical-alignment;
+  justify-content: $horizontal-alignment;
+  flex-wrap: $wrap;
+}
+
+@mixin flex-column(
+  $vertical-alignment: center,
+  $horizontal-alignment: center,
+  $wrap: initial
+) {
+  display: flex;
+  flex-direction: column;
+  align-items: $horizontal-alignment;
+  justify-content: $vertical-alignment;
+  flex-wrap: $wrap;
+}

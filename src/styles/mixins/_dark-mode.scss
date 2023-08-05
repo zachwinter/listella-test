@@ -1,0 +1,7 @@
+// Write styles specific for dark mode. 
+
+@mixin dark-mode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}

@@ -1,0 +1,47 @@
+@use '@/styles/imports' as *;
+
+.mode {
+  @include flex-row(space-between, center);
+  margin: 0 -1em;
+  padding-bottom: var(--outer-padding);
+  background: linear-gradient(to top, var(--white),white);
+
+  strong {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    width: 3em;
+    text-align: center;
+    flex: 1;
+    opacity: .2;
+    transition: var(--base-transition);
+  }
+
+  .active {
+    color: var(--black);
+    opacity: 1;
+  }
+
+
+  .active:first-child {
+    color: var(--black);
+  }
+}
+
+.row {
+  @include flex-row;
+  gap: var(--outer-padding);
+  // height: 25vh;
+  font-size: 1.5em;
+  // margin-bottom: auto;
+  // margin-top: calc(3 * var(--outer-padding) + var(--nav-height));
+
+  &:first-of-type {
+    padding: var(--outer-padding) 0;
+  }
+  
+  &:last-of-type {
+    width: 100%;
+    gap: 0;
+    padding: var(--outer-padding);
+  }
+}

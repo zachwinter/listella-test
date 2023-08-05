@@ -1,0 +1,11 @@
+// Get rid of that pesky scroll bar. 
+
+@mixin hide-scroll {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::scrollbar {
+    display: none;
+  }
+}

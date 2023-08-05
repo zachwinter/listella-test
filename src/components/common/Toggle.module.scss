@@ -1,0 +1,34 @@
+@use '@/styles/imports' as *;
+
+.toggle {
+  @include size(4rem, 2rem);
+  position: relative;
+  background: var(--white);
+  border-radius: 5rem;
+}
+
+.checkbox {
+  @include size(100%);
+  @include position(absolute, 0 0 0 0);
+  opacity: 0;
+}
+
+:focus .circle {
+  transform: scale(0.6) !important;
+}
+
+.circle {
+  @include size(2rem);
+  border-radius: 5rem;
+  display: block;
+  background: var(--gray);
+  pointer-events: none;
+  transition: var(--base-transition);
+  will-change: transform;
+  transform: scale(0.8);
+}
+
+:checked + .circle {
+  transform: translateX(100%) scale(0.8);
+  background: var(--blue);
+}

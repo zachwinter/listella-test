@@ -1,0 +1,17 @@
+// Shorthand for simultaneously defining `width` and `height`.
+// If `height` is undefined, the value for `width` is used.
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin min-size($width, $height: $width) {
+  min-width: $width;
+  min-height: $height;
+}
+
+@mixin max-size($width, $height: $width) {
+  max-width: $width;
+  max-height: $height;
+}

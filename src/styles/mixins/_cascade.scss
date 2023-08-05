@@ -1,0 +1,9 @@
+// Utility for creating cascading animations on item lists (animation not included).
+
+@mixin cascade($count: 10, $delay: 100ms, $init: 0ms) {
+  @for $i from 0 through $count {
+    &:nth-child(#{$i + 1}) {
+      animation-delay: #{($init + ($i * $delay))};
+    }
+  }
+}

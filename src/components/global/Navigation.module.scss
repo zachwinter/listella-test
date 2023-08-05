@@ -1,0 +1,128 @@
+@use '@/styles/imports' as *;
+@use 'sass:math';
+
+.navigation {
+  @include position(fixed, 0 null null 0, 20);
+  @include size(100vw, calc(var(--nav-height) + 2 * var(--outer-padding)));
+  @include flex-row(flex-start);
+  padding: calc(.5 * var(--outer-padding)) var(--outer-padding);
+  gap: var(--spacer);
+
+  img {
+    @include size(130px, auto);
+    transition: var(--base-transition);
+
+    @include mobile-landscape {
+      display: none;
+    }
+  }
+
+  svg {
+    @include size(auto, calc(var(--element-height) - 1rem));
+    @include position(absolute, calc(.5rem + var(--outer-padding)) null null .5rem);
+    opacity: 0;
+    transform: translateX(50px);
+    transition: var(--base-transition);
+  }
+
+
+  &.back {
+    img {
+      transform: translateX(-50px);
+      opacity: 0;
+    }
+
+    svg {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes fade-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) scale(.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.nav {
+  @include position(fixed, 0 null null 0, 5);
+  @include size(100vw, 100vh);
+  @include flex-column;
+  text-align: center;
+  background: var(--white);
+  opacity: 0;
+  transition: all var(--duration) var(--easing);
+  transform: scale(1.2);
+  padding: var(--outer-padding);
+  padding-top: 0;
+  pointer-events: none;
+
+  ul {
+    @include flex-column(flex-start, flex-end);
+    width: 100%;
+  }
+
+  a {
+    display: block;
+    font-size: 2.25em;
+    line-height: 2;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    color: var(--black);
+  }
+}
+
+@keyframes bubble {
+  0% {
+    transform: scale(0.25);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: scale(1);
+  
+  a {
+    animation: fade-slide 500ms var(--easing) forwards;
+    transform-origin: center;
+    opacity: 0;
+
+    @include cascade(10, 90ms);
+  }
+
+  img, img + * {
+    animation: fade-slide 500ms var(--easing) forwards;
+  }
+}
+
+.mode {
+  font-weight: 700;
+  font-size: 1.5em;
+  color: var(--blue);
+
+  &:before {
+    content: " / ";
+    font-weight: 300;
+    margin-left: -.25em;
+    color:  var(--black);
+    font-size: 1em;
+  }
+}
+
+.links {
+  @include center;
+}
